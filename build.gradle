@@ -1,3 +1,7 @@
+repositories {
+    mavenCentral()
+}
+
 buildscript {
 
     repositories {
@@ -8,49 +12,24 @@ buildscript {
         classpath 'org.ajoberstar:gradle-git:1.2.0'
     }
 }
-import org.ajoberstar.grgit.*
-
-version '1.1'
 
 apply plugin: 'java'
 apply plugin: "org.ajoberstar.grgit"
 apply plugin: 'maven'
+import org.ajoberstar.grgit.*
 
+version '1.1'
 group = 'com.github.F1tZ81'
 
-repositories {
-   mavenCentral()
-}
-
 dependencies {
-   compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
-   compile 'io.selendroid:selendroid-standalone:0.15.0'
-   compile 'io.selendroid:selendroid-client:0.15.0'
-}
+    compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
+    compile 'io.selendroid:selendroid-standalone:0.15.0'
+    compile 'io.selendroid:selendroid-client:0.15.0'
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'src/resources'
-        }
-    }
-}
-
-task hello {
-    doLast {
-        println 'Hello world!'
-    }
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.mockito:mockito-core:1.9.5'
 }
 
 task clone << {
-    Grgit.clone(dir: file('/'), uri: 'https://github.com/F1tZ81/WebDriverExtended.git')
+    Grgit.clone(dir: file('/'), uri: 'https://github.com/F1tZ81/WebDriverExtendedJVM.git')
 }
-
-
-
-
-
-
