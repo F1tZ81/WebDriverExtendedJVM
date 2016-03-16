@@ -1,7 +1,7 @@
 package com.ostusa;
 
 /**
- * 
+ *
  * This advance form of the page object interface
  * allows for a page object to be loaded from a file
  * and have a key value pair of Elements.
