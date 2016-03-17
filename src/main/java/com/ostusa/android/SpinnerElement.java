@@ -8,19 +8,19 @@ import com.ostusa.DynamicElement;
 public class SpinnerElement extends DynamicElement
 {
 	List<DynamicElement> Options;
-	
+
 	public SpinnerElement()
 	{
 		super();
 		Options = new ArrayList<DynamicElement>();
 	}
-	
-	public void AddOptionElement(DynamicElement element)
+
+	public void addOptionElement(DynamicElement element)
 	{
 		Options.add(element);
 	}
-	
-	public void ClickOption(String value)
+
+	public void clickOption(String value)
 	{
 		for(DynamicElement currentEle : Options)
 		{
@@ -30,15 +30,15 @@ public class SpinnerElement extends DynamicElement
 			}
 		}
 	}
-	
-	public void ClickOption(int index)
+
+	public void clickOption(int index)
 	{
 		Options.get(index).click();
 	}
-	
-	public List<DynamicElement> GetOptions()
+
+	public List<DynamicElement> getOptions()
 	{
 		return Options;
 	}
-	
+
 }

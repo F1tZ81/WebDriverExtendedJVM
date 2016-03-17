@@ -3,7 +3,9 @@ package com.ostusa;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.stubbing.Answer;
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ById;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -33,6 +35,7 @@ public class DynamicElementTest{
 
     private WebDriver setupWebDriver() {
         WebDriver driver = mock(WebDriver.class);
+        // TODO: Figure out how to set internal objects from function call
         when(driver.findElement( (By) any() )).thenReturn( webElement );
 
         return driver;
@@ -43,9 +46,14 @@ public class DynamicElementTest{
 
     }
 
-    @Test
-    public void testGetText(){
-        assertEquals("Test Text", dynamicElement.getText());
+    @Test(expected = NullPointerException.class)
+    public void testGetTextNPE(){
+        dynamicElement.getText();
     }
 
+    @Test
+    public void testGetText(){
+        dynamicElement.AddSearch(new ById(""));
+        assertEquals("Test Text", dynamicElement.getText());
+    }
 }
