@@ -1,4 +1,4 @@
-package com.ostusa.android;
+package io.swarmauto.driverextended.android;
 
 
 import io.selendroid.client.SelendroidDriver;
