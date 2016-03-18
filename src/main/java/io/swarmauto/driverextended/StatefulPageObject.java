@@ -1,4 +1,4 @@
-package com.ostusa;
+package io.swarmauto.driverextended;
 
 public interface StatefulPageObject extends PageObject
 {

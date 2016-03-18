@@ -1,9 +1,9 @@
-package com.ostusa.android;
+package io.swarmauto.driverextended.android;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ostusa.DynamicElement;
+import io.swarmauto.driverextended.DynamicElement;
 
 public class SpinnerElement extends DynamicElement
 {

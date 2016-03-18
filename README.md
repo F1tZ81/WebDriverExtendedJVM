@@ -1,6 +1,6 @@
 # WebDriverExtendedJVM
-[![JITPack.io](https://jitpack.io/v/F1tZ81/WebDriverExtendedJVM.svg)](https://jitpack.io/#F1tZ81/WebDriverExtendedJVM)
-[![Build Status](https://travis-ci.org/F1tZ81/WebDriverExtendedJVM.svg?branch=master)](https://travis-ci.org/F1tZ81/WebDriverExtendedJVM)
+[![JITPack.io](https://jitpack.io/v/SwarmAutomation/WebDriverExtendedJVM.svg)](https://jitpack.io/#SwarmAutomation/WebDriverExtendedJVM)
+[![Build Status](https://travis-ci.org/SwarmAutomation/WebDriverExtendedJVM.svg?branch=master)](https://travis-ci.org/SwarmAutomation/WebDriverExtendedJVM)
 This project is associated with the [WebDriverExtendedDotNet](https://github.com/F1tZ81/WebDriverExtendedDotNet) project.
 
 ## Usage

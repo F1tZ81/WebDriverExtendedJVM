@@ -1,4 +1,4 @@
-package com.ostusa;
+package io.swarmauto.driverextended;
 
 import org.openqa.selenium.WebDriver;
 

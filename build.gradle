@@ -19,7 +19,7 @@ apply plugin: 'maven'
 import org.ajoberstar.grgit.*
 
 version '1.1'
-group = 'com.github.F1tZ81'
+group = 'com.github.SwarmAutomation'
 
 dependencies {
     compile 'org.seleniumhq.selenium:selenium-java:2.46.0'
@@ -31,5 +31,5 @@ dependencies {
 }
 
 task clone << {
-    Grgit.clone(dir: file('/'), uri: 'https://github.com/F1tZ81/WebDriverExtendedJVM.git')
+    Grgit.clone(dir: file('/'), uri: 'https://github.com/SwarmAutomation/WebDriverExtendedJVM.git')
 }
