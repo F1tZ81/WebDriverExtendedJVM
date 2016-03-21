@@ -52,7 +52,7 @@ public class DynamicElementTest{
 
     @Test
     public void testGetText(){
-        dynamicElement.AddSearch(new ById(""));
+        dynamicElement.addSearch(new ById(""));
         assertEquals("Test Text", dynamicElement.getText());
     }
 }

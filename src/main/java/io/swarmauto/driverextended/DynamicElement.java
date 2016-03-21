@@ -12,7 +12,7 @@ public class DynamicElement implements WebElement
     private ArrayList<By> searchOptions = new ArrayList<By>();
 	public String displayName = null;
 
-    Report Reporting;
+    Report report;
 
     public DynamicElement() { }
 
@@ -24,13 +24,13 @@ public class DynamicElement implements WebElement
         this(driver, null, DisplayName);
     }
 
-    public DynamicElement(WebDriver driver, Report reporting) {
-        this(driver, reporting, "Unknown");
+    public DynamicElement(WebDriver driver, Report report) {
+        this(driver, report, "Unknown");
     }
 
-    public DynamicElement(WebDriver driver, Report reporting, String displayName) {
+    public DynamicElement(WebDriver driver, Report report, String displayName) {
         this.driver = driver;
-        Reporting = reporting;
+        this.report = report;
         this.displayName = displayName;
     }
 
@@ -56,14 +56,14 @@ public class DynamicElement implements WebElement
                 }
             }
 
-            if(Reporting != null) Reporting.validate("Could not find the element " + displayName, false);
+            if( report != null) report.validate("Could not find the element " + displayName, false);
             return this;
         }
 
         return this;
     }
 
-    public DynamicElement AddSearch(By byToAdd) {
+    public DynamicElement addSearch(By byToAdd) {
         searchOptions.add(byToAdd);
         return this;
     }
@@ -72,14 +72,14 @@ public class DynamicElement implements WebElement
     public void clear() {
         this.Find();
         this.rootElement.clear();
-        Reporting.writeStep("Clear element " + displayName);
+        report.writeStep("Clear element " + displayName);
     }
 
     @Override
     public void click() {
         this.Find();
         this.rootElement.click();
-        Reporting.writeStep("Click element " + displayName);
+        report.writeStep("Click element " + displayName);
     }
 
     @Override
@@ -150,14 +150,14 @@ public class DynamicElement implements WebElement
     public void sendKeys(CharSequence... arg0) {
         this.Find();
         this.rootElement.sendKeys(arg0);
-        Reporting.writeStep("Send Keys (" + arg0 + ") to  element " + displayName);
+        report.writeStep("Send Keys (" + arg0 + ") to  element " + displayName);
     }
 
     @Override
     public void submit() {
         this.Find();
         this.rootElement.submit();
-        Reporting.writeStep("Submit element " + displayName);
+        report.writeStep("Submit element " + displayName);
     }
 
     private boolean ElementStale() {
