@@ -4,7 +4,7 @@ public interface StatefulPageObject extends PageObject
 {
 	void addState(String key, String value) throws InvalidStateException;
 
-	ApplicationState getState(String key) throws InvalidStateException;
+	PageState getState(String key) throws InvalidStateException;
 
 	void updateState(String key, String value) throws InvalidStateException;
 

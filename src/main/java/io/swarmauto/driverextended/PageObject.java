@@ -43,4 +43,35 @@ public interface PageObject
      * Cleanup any necessary internals.
      */
     void tearDown();
+
+    /**
+     * This gets base URL which consists of the protocol and the host name
+     * (i.e. http://example.com) It should never end in a trailing slash, and
+     * should follow a similar format as shown in the example.
+     * @return
+     */
+    String getBaseUrl();
+
+    /**
+     * Sets the base URL
+     * @param baseUrl String should look similar (i.e. http://example.com) if there
+     *                is a port, then that too should be included.
+     */
+    void setBaseUrl(String baseUrl);
+
+    /**
+     * Gets the path which should consist of a leading slash (i.e. /blog)
+     * @return
+     */
+    String getPath();
+
+    void setPath(String path);
+
+    /**
+     *
+     * @return Full Path of the formatted string (i.e. http://example.com/blog)
+     */
+    String getPageUrl();
+
+    DynamicElement getDynamicElement();
 }

@@ -1,7 +1,6 @@
 package io.swarmauto.driverextended;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +15,9 @@ public class DynamicElement implements WebElement
     private ArrayList<By> searchOptions = new ArrayList<By>();
     private Report report;
 
-    public DynamicElement() { }
+    public DynamicElement() {
+        // No setup necessary
+    }
 
     public DynamicElement(WebDriver driver) {
         this(driver, null, "Unknown");
@@ -32,7 +33,7 @@ public class DynamicElement implements WebElement
 
     public DynamicElement(WebDriver driver, Report report, String displayName) {
         this.driver = driver;
-        this.report = report;
+        this.report = new SafeReport(report);
         this.displayName = displayName;
     }
 
@@ -98,12 +99,12 @@ public class DynamicElement implements WebElement
         return this.rootElement.getCssValue(arg0);
     }
 
-
     @Override
     public Point getLocation() {
         this.find();
         return this.rootElement.getLocation();
     }
+
 
     @Override
     public Dimension getSize() {
@@ -181,7 +182,9 @@ public class DynamicElement implements WebElement
         for (By currentSearch : searchOptions) {
             if (!foundElements) {
                 elements = driver.findElements(currentSearch);
-                if (elements.size() > 0) foundElements = true;
+                if (!elements.isEmpty()) {
+                    foundElements = true;
+                }
             }
         }
 
@@ -192,27 +195,26 @@ public class DynamicElement implements WebElement
             }
 
             Collections.reverse(elementsToReturn); // TODO: Why do we even need a reversal?
-
-            return elementsToReturn;
         }
 
-        return null;
+        return elementsToReturn;
     }
 
-    private boolean ElementStale() {
+    private boolean elementStale() {
         try
         {
             rootElement.getLocation();
             return false;
         }
-        catch (StaleElementReferenceException e)
+        catch ( @SuppressWarnings(value = "unchecked") StaleElementReferenceException e)
         {
-            return true;
+            // Do nothing.
         }
+        return true;
     }
 
     private DynamicElement find() {
-        if(rootElement == null || ElementStale())
+        if(rootElement == null || elementStale())
         {
             for (By currentBy: searchOptions)
             {
@@ -221,10 +223,12 @@ public class DynamicElement implements WebElement
                     rootElement = driver.findElement(currentBy);
                     return this;
                 }
-                catch (Exception e) { }
+                catch (Exception e) {
+                    // Do nothing.
+                }
             }
 
-            if( report != null) report.validate("Could not find the element " + displayName, false);
+            report.validate("Could not find the element " + displayName, false);
             return this;
         }
 
