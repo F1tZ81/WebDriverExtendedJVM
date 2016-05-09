@@ -1,0 +1,15 @@
+language: java
+sudo: false
+
+env:
+    - TERM=dumb
+
+before_script:
+  - pip install --user codecov
+
+script:
+  - "./gradlew clean check -i"
+
+after_success:
+  - "./gradlew jacocoTestReport"
+  - codecov
