@@ -2,13 +2,10 @@ package io.swarmauto.driverextended;
 
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by harolddost on 4/5/16.
- */
 public abstract class AbstractPageObject implements PageObject{
 
-    private WebDriver driver;
-    private Report report;
+    protected WebDriver driver;
+    protected Report report;
 
     @Override
     public void navigate(WebDriver webDriver, String page) {
