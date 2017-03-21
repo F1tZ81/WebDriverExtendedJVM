@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
  */
 public abstract class AbstractPageObject implements PageObject{
 
-    private WebDriver driver;
-    private Report report;
+    protected WebDriver driver;
+    protected Report report;
 
     @Override
     public void navigate(WebDriver webDriver, String page) {
