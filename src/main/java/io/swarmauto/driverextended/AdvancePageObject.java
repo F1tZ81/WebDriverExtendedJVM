@@ -6,7 +6,7 @@ package io.swarmauto.driverextended;
  * allows for a page object to be loaded from a file
  * and have a key value pair of Elements.
  */
-public interface AdvancePageObject extends PageObject {
+public interface AdvancePageObject extends Page {
     /**
      * Add a dynamicElement to the key element list.
      *

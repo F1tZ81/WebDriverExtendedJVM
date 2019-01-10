@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -57,7 +56,7 @@ public class DynamicElement implements WebElement
      * @param page the page object that this element belongs too
      * @param displayName the display name of the element (human readable)
      */
-    public DynamicElement(PageObject page, String displayName) {
+    public DynamicElement(Page page, String displayName) {
         this(page, displayName, null);
     }
 
@@ -68,7 +67,7 @@ public class DynamicElement implements WebElement
      * @param displayName
      * @param parentElement
      */
-    public DynamicElement(PageObject page, String displayName, DynamicElement parentElement) {
+    public DynamicElement(Page page, String displayName, DynamicElement parentElement) {
         ParentElement = parentElement;
         this.driver = page.getDriver();
         this.ParrentPage = page.getDisplayName();

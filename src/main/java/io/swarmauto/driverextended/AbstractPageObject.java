@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by harolddost on 4/5/16.
  */
-public abstract class AbstractPageObject implements PageObject{
+public abstract class AbstractPageObject implements Page {
 
     protected WebDriver driver;
     protected Report report;

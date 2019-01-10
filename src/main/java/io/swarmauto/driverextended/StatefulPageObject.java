@@ -1,6 +1,6 @@
 package io.swarmauto.driverextended;
 
-public interface StatefulPageObject extends PageObject
+public interface StatefulPageObject extends Page
 {
 	void addState(String key, String value) throws InvalidStateException;
 
