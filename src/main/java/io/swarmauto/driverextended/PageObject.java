@@ -74,4 +74,10 @@ public interface PageObject
     String getPageUrl();
 
     DynamicElement getDynamicElement();
+
+    /** Get the the Diplay name used in reporting */
+    String getDisplayName();
+
+    /** Get the accocited webdriver in the page object. */
+    WebDriver getDriver();
 }
