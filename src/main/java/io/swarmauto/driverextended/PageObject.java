@@ -5,13 +5,8 @@ import org.openqa.selenium.WebDriver;
 /**
  * A basic page object interface
  */
-public interface PageObject
+public interface PageObject extends PagePatternObject
 {
-    /**
-     * Setup any necessary internals.
-     */
-    void setup();
-
     /**
      * Navigate to an address with a specified browser and url.
      *
@@ -38,11 +33,6 @@ public interface PageObject
      * Navigate to an address and browser determined by the PageObject.
      */
     void navigate();
-
-    /**
-     * Cleanup any necessary internals.
-     */
-    void tearDown();
 
     /**
      * This gets base URL which consists of the protocol and the host name
@@ -75,9 +65,4 @@ public interface PageObject
 
     DynamicElement getDynamicElement();
 
-    /** Get the the Diplay name used in reporting */
-    String getDisplayName();
-
-    /** Get the accocited webdriver in the page object. */
-    WebDriver getDriver();
 }
