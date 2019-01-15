@@ -470,4 +470,8 @@ public class DynamicElement implements WebElement
     public String getParentName(){
         return ParentPage;
     }
+
+    public DynamicElement getParentElement(){
+        return ParentElement;
+    }
 }
