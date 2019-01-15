@@ -50,7 +50,7 @@ public class DynamicElement implements WebElement
         this.report = null;
     }
 
-    private DynamicElement(WebDriver driver, String displayName, WebElement rootElement) {
+    public DynamicElement(WebDriver driver, String displayName, WebElement rootElement) {
         this(driver, rootElement);
         this.displayName = displayName;
 
