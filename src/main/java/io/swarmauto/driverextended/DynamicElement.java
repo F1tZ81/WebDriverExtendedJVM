@@ -28,7 +28,7 @@ public class DynamicElement implements WebElement
         this(driver, "Unknown");
     }
 
-    public DynamicElement(WebDriver driver, String DisplayName) {
+    public DynamicElement(WebDriver driver, String displayName) {
         this.driver = driver;
         this.displayName = displayName;
     }
