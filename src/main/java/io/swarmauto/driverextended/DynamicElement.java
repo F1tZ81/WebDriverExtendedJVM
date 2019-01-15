@@ -15,7 +15,7 @@ public class DynamicElement implements WebElement
     private WebElement rootElement;
 	protected String displayName = null;
     private boolean NoCache = false;
-    protected String ParrentPage = null;
+    protected String ParentPage = null;
     private ArrayList<By> searchOptions = new ArrayList<By>();
     private DynamicElement ParentElement;
     private Report report;
@@ -76,7 +76,7 @@ public class DynamicElement implements WebElement
     public DynamicElement(PageObject page, String displayName, DynamicElement parentElement) {
         ParentElement = parentElement;
         this.driver = page.getDriver();
-        this.ParrentPage = page.getDisplayName();
+        this.ParentPage = page.getDisplayName();
         this.displayName = displayName;
         this.report = null;
     }
@@ -178,7 +178,7 @@ public class DynamicElement implements WebElement
                 }
 
                 throw new WebDriverException(
-                    "Error finding " + displayName + " on the page / screen" + ParrentPage);
+                    "Error finding " + displayName + " on the page / screen" + ParentPage);
                 //return this;
 
             }
@@ -189,7 +189,7 @@ public class DynamicElement implements WebElement
                 "Error finding "
                     + displayName
                     + " on the page / screen"
-                    + ParrentPage
+                    + ParentPage
                     + "\n"
                     + e.toString());
         }
@@ -465,5 +465,9 @@ public class DynamicElement implements WebElement
 
     public void setDisplayName(String name) {
         displayName = name;
+    }
+
+    public String getParentName(){
+        return ParentPage;
     }
 }
