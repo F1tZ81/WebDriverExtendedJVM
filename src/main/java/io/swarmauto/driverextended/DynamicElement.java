@@ -62,7 +62,7 @@ public class DynamicElement implements WebElement
      * @param page the page object that this element belongs too
      * @param displayName the display name of the element (human readable)
      */
-    public DynamicElement(Page page, String displayName) {
+    public DynamicElement(PageObject page, String displayName) {
         this(page, displayName, null);
     }
 
@@ -73,7 +73,7 @@ public class DynamicElement implements WebElement
      * @param displayName
      * @param parentElement
      */
-    public DynamicElement(Page page, String displayName, DynamicElement parentElement) {
+    public DynamicElement(PageObject page, String displayName, DynamicElement parentElement) {
         ParentElement = parentElement;
         this.driver = page.getDriver();
         this.ParrentPage = page.getDisplayName();
