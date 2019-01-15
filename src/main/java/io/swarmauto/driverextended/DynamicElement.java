@@ -91,7 +91,7 @@ public class DynamicElement implements WebElement
     public DynamicElement(WebDriver driver, String page, String displayName) {
         this.ParentElement = null;
         this.driver = driver;
-        this.ParrentPage = page;
+        this.ParentPage = page;
         this.displayName = displayName;
         this.report = null;
     }
@@ -304,7 +304,7 @@ public class DynamicElement implements WebElement
                 "Error with send keys on "
                     + displayName
                     + " on the page / screen"
-                    + ParrentPage
+                    + ParentPage
                     + "\n"
                     + e.toString()
                     + " with input of "
