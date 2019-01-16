@@ -43,6 +43,8 @@ public class DynamicElement implements WebElement
         this.displayName = displayName;
     }
 
+
+    // Root Skip
     private DynamicElement(WebDriver driver, WebElement rootElement) {
         this.rootElement = rootElement;
         this.driver = driver;
@@ -54,6 +56,16 @@ public class DynamicElement implements WebElement
         this(driver, rootElement);
         this.displayName = displayName;
 
+    }
+
+    private DynamicElement(WebDriver driver, DynamicElement parentElement){
+        this(driver);
+        ParentElement = parentElement;
+    }
+
+    public DynamicElement(WebDriver driver, String displayName, DynamicElement parentElement){
+        this(driver, parentElement);
+        this.displayName = displayName;
     }
 
     /**
